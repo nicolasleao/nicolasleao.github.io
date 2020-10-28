@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap');
+
+html {
+ 	scroll-behavior: smooth;
+}
+
+body {
+	font-family: 'Quicksand', sans-serif !important;
+}
+
+.container .nav-link {
+	color: #c0c0c0 !important;
+}
+
+/* BUTTONS */
+.btn:focus,.btn:active:focus,.btn.active:focus,
+.btn.focus,.btn:active.focus,.btn.active.focus {
+	outline: none !important;
+	box-shadow: none !important;
+}
+
+.btn-primary {
+	background: #F9A826 !important;
+	border: none;
+}
+
+.btn-primary:hover {
+	background: #DE9826 !important;
+	border: none;
+}
+
+/* BADGES */
+
+.badge-primary {
+	background: #F9A826 !important;
+}
+
+.nav-link {
+	margin: 15px;
+}
+
+.tb-img {
+	max-width: 95%;
+}
+
+.tb-title {
+	font-size: 3em;
+	font-weight: 600;
+}
+
+.tb-body a {
+	font-weight: 600;
+}
+
+.micro {
+	font-size: .6em;
+	font-style: italic;
+}
+
+.plan-price {
+	margin-top: 15px;
+}
+
+.clients {
+	margin: 0;
+	margin-top: 90px;
+	margin-bottom: 90px;
+	color: #b2b9bf;
+	max-height: 270px;
+}
+
+.final-cta {
+	background: #f4f4f4;
+}
+
+.show-mobile {
+	display: none;
+}
+
+@media only screen and (max-width: 500px) {
+	.tb-title {
+		font-size: 2.2em;
+		font-weight: 600;
+	}
+	.tb-img {
+		max-width: 70%;
+	}
+}
+
+@media only screen and (max-width: 990px) {
+	.hide-mobile {
+		display: none;
+	}
+	.show-mobile {
+		display: block;
+	}
+}
