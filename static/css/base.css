@@ -8,8 +8,30 @@ body {
 	font-family: 'Quicksand', sans-serif !important;
 }
 
+.navbar {
+	box-shadow: 0 2px 10px 2px rgba(0,0,0,0.2);
+}
+
 .container .nav-link {
-	color: #c0c0c0 !important;
+	z-index: 10;
+}
+
+.bg-black {
+	background-color: black !important;
+}
+
+.bg-black .dropdown-menu a {
+	color: #fff !important;
+}
+
+.bg-black .dropdown-menu a:hover {
+	background-color: #222 !important;
+	color: #fff !important;
+}
+
+.navbar-toggler-icon {
+	color: white;
+	z-index: 10;
 }
 
 /* BUTTONS */
@@ -20,19 +42,23 @@ body {
 }
 
 .btn-primary {
-	background: #F9A826 !important;
+	background: #26AEEF !important;
 	border: none;
 }
 
 .btn-primary:hover {
-	background: #DE9826 !important;
+	background: #1777B6 !important;
 	border: none;
 }
 
 /* BADGES */
 
 .badge-primary {
-	background: #F9A826 !important;
+	background: #26AEEF !important;
+}
+
+.navbar .nav-link {
+	color: #fff !important;
 }
 
 .nav-link {
@@ -62,11 +88,27 @@ body {
 }
 
 .clients {
-	margin: 0;
+	margin: 0 auto;
 	margin-top: 90px;
 	margin-bottom: 90px;
 	color: #b2b9bf;
 	max-height: 270px;
+}
+
+.clients .client {
+	margin-top: 10px;
+	width: 33.33%;
+	height: 80px;
+}
+
+.clients .client-fox {
+	margin-top: 0;
+	height: 100px;
+}
+
+.clients .client .tb-img{
+	padding: 0 50px; 
+	filter: grayscale(100%) !important;
 }
 
 .final-cta {
@@ -83,7 +125,21 @@ body {
 		font-weight: 600;
 	}
 	.tb-img {
-		max-width: 70%;
+	}
+
+	.clients .client .tb-img{
+		padding: 0 5px !important; 
+	}
+
+	.clients .client {
+		margin-top: 10px;
+		width: 50%;
+		height: 70px;
+	}
+	.clients .client-fox {
+		margin-left: 25%;
+		width: 50%;
+		height: 100px !important;
 	}
 }
 
@@ -93,5 +149,12 @@ body {
 	}
 	.show-mobile {
 		display: block;
+	}
+	.clients .client .tb-img{
+		padding: 0 5px !important; 
+	}
+	.clients .client{
+		padding: 0 0 !important; 
+		height: 80px;
 	}
 }
