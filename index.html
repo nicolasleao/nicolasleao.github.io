@@ -1,288 +1,41 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0, shrink-to-fit=no">
-  <link rel="stylesheet" href="static/css/bootstrap.min.css">
-  <link rel="stylesheet" href="static/css/base.css">
-  <link rel="stylesheet" href="static/css/line-awesome.min.css">
-  <link rel="stylesheet" href="https://unpkg.com/progressively/dist/progressively.min.css">
-  <title>Dex Works</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Nicolas Leao</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-black">
-    <div class="container">
-    <a class="navbar-brand" href="#" style="background: transparent !important;">
-    <img src="static/img/dex-logo-small.png" width="64" height="64" class="d-inline-block align-top" alt=""> <span style="color:white;line-height: 60px">DexWorks</span>
-    </a>
-    
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse text-center" id="navbarSupportedContent">
-      <ul class="navbar-nav align-middle ml-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="#solutions">Soluções</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#plans">Planos</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Recursos
-          </a>
-          <div class="dropdown-menu dropdown-menu-right text-center bg-black" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="#">Blog</a>
-            <a class="dropdown-item" href="#">Como usar?</a>
-            <a class="dropdown-item" href="#">Downloads</a>
-          </div>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Entrar</a>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="btn btn-primary rounded-pill ml-3 mt-3 px-3"><b>Comece de Graça</b></a>
-        </li>
-      </ul>
-    </div>
-    </div>
-  </nav>
-
-  <div class="container">
-    <div class="content my-5">
-      <section class="row tb mb-3">
-        <div class="col-lg-6 col-12 tb-body mb-5">
-          <p class="tb-title">O que você quer vender online?</p>
-          <p>Temos tudo que você precisa na nossa plataforma. Veja você mesmo, teste gratuitamente por 14 dias.</p>
-          <a href="#solutions" class="btn btn-primary rounded-pill">Criar Conta</a>
+    <header>
+        <div class="site-logo">
+            <a href="index.html">
+                <img src="assets/logo-small-3.png" alt="Nicolas Leao" />
+            </a>
         </div>
-        <div class="col-lg-6 col-12 text-center">
-          <img class="tb-img progressive__img progressive--not-loaded" data-progressive="static/img/dash-1.jpeg" > <!--undraw_web_shopping_dd4l.svg-->
-        </div><br>
-      </section>
-      <span id="solutions"></span>
+        <nav>
+            <a target="_blank" href="index.html">home</a>
+            <a target="_blank" href="https://github.com/nicolasleao">github</a>
+            <a target="_blank" href="#">community</a>
+        </nav>
+    </header>
 
-      <section class="clients row text-center">
-        <h5 class="col-12">Estas empresas já conhecem as vantagens de usar nosso sistema <i class="las la-angle-down"></i></h5>
-        <div class="row">
-        <div class="client">
-          <img class="tb-img progressive__img progressive--not-loaded" data-progressive="static/img/mirak-logo.png">
-        </div>
-        <div class="client">
-          <img class="tb-img progressive__img progressive--not-loaded" data-progressive="static/img/endy-logo.png">
-        </div>
-        <div class="client client-fox">
-          <img class="tb-img progressive__img progressive--not-loaded" data-progressive="static/img/bikinifox-logo.png" style="max-width: 80%; margin-top: 15px;">
-        </div>
-        </div>
-      </section>
+    <main>
+        <section class="intro">
+            <h1>Hey, I'm Nicolas</h1>
+            <p>I'm an AI Engineer from Brazil, and here I share some of my personal projects, guides and other content about what I'm currently working on.</p>
+        </section>
 
-      <section class="row tb mb-4">
-        <div class="col-lg-6 col-12 text-center">
-          <img class="tb-img progressive__img progressive--not-loaded" data-progressive="static/img/undraw_metrics_gtu7.svg">
-        </div>
-        <div class="col-lg-6 col-12 tb-body my-5">
-          <p class="tb-title">Entenda os seus clientes</p>
-          <p>Disponibilizamos ferramentas sofisticadas para análise de dados, permitindo que você entenda os hábitos dos seus clientes e direcione melhor suas campanhas, para se posicionar bem neste mercado competitivo.</p>
-        </div>
-      </section>
+        <ul class="post-list">
+            <li class="post-item">
+                <a href="posts/hello-world.html" class="post-title">Hello World</a>
+                <span class="post-date">Apr 3, 2024</span>
+            </li>
+        </ul>
+    </main>
 
-      <section class="row tb mb-4">
-        <div class="col-lg-6 col-12 text-center show-mobile">
-          <img class="tb-img progressive__img progressive--not-loaded" data-progressive="static/img/undraw_connected_world_wuay.svg">
-        </div>
-        <div class="col-lg-6 col-12 tb-body my-5">
-          <p class="tb-title">Aumente o alcance do seu negócio</p>
-          <p>Além de ganhar um espaço dentro do nosso marketplace de alcance nacional, você também poderá desfrutar da nossa integração com os correios, facilitando o envio dos seus produtos para qualquer estado do Brasil.</p>
-        </div>
-        <div class="col-lg-6 col-12 text-center hide-mobile">
-          <img class="tb-img progressive__img progressive--not-loaded" data-progressive="static/img/undraw_connected_world_wuay.svg">
-        </div>
-      </section>
-
-      <section class="row tb mb-4">
-        <div class="col-lg-6 col-12 text-center">
-          <img class="tb-img progressive__img progressive--not-loaded" data-progressive="static/img/undraw_researching_22gp.svg">
-        </div>
-        <div class="col-lg-6 col-12 tb-body my-5">
-          <p class="tb-title">Trabalhe a partir da sua casa</p>
-          <p>Gerencie seu negócio pelo computador, ou pelo celular. Nosso painel também dispõe de controle de estoque, e relatórios detalhados para você mensurar o crescimento do seu negócio e os resultados das suas campanhas.</p>
-        </div>
-      </section>
-
-      <div class="text-center">
-        <a href="#"><b>Iniciar meu período de testes gratúito <i class="las la-share"></i></b></a>
-      </div>
-
-      <section class="row tb mb-4">
-        <div class="col-lg-6 col-12 text-center show-mobile">
-          <img class="tb-img progressive__img progressive--not-loaded" data-progressive="static/img/undraw_professor_8lrt.svg">
-        </div>
-        <div class="col-lg-6 col-12 tb-body my-5">
-          <p class="tb-title">Consultoria Personalizada</p>
-          <p>Oferecemos também o serviço de consultoria de ecommerce para empresas, onde abordaremos os pilares da conversão em vendas, com a nossa expertise de mais de dez anos no mercado digital, garantimos uma evolução substancial e mensurável nos resultados da sua empresa.</p>
-        </div>
-        <div class="col-lg-6 col-12 text-center hide-mobile">
-          <img class="tb-img progressive__img progressive--not-loaded" data-progressive="static/img/undraw_professor_8lrt.svg">
-        </div>
-      </section>
-
-
-
-      <section class="row tb pricing text-center m-lg-4">
-        <div class="col">
-          <p class="tb-title">Planos</p>
-          <p id="plans" class="mb-5">Pague apenas após 14 dias de teste.</p>
-          <nav class="mb-5">
-            <div class="nav nav-tabs justify-content-center" id="nav-tab" role="tablist">
-              <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#monthly" role="tab" aria-controls="monthly-tab" aria-selected="true">Mensal</a>
-
-              <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#yearly" role="tab" aria-controls="yearly-tab" aria-selected="false">Anual</a>
-            </div>
-          </nav>
-          <div class="tab-content mt-5" id="myTabContent">
-            <div class="tab-pane fade show active" id="monthly" role="tabpanel" aria-labelledby="monthly-tab">
-              <div class="row mx-lg-5">
-                <div class="col-lg-4 col-12 mb-2">
-                  <div class="card h-100">
-                    <div class="card-body">
-                      <h3 class="card-title"><br>Básico</h3>
-                      <!-- Basic plan features -->
-                      <small><b>1GB</b> de Armazenamento</small><br>
-                      <small>Até <b>80</b> Produtos</small><br>
-                      <small>SEO Automatizado</small><br>
-                      <small><strike>Cartões de Presente</strike></small><br>
-                      <small><strike><b>Marketing Digital com IA</b></strike></small><br>
-                      <small><strike>Marketplace de Extensões</strike></small><br>
-                      <small><strike>Consultoria de Ecommerce</strike></small>
-
-                      <h5 class="plan-price">R$ 100,00 / Mês</h5>
-                    </div>
-                  </div>
-                </div>
-                
-                <div class="col-lg-4 col-12 mb-2">
-                  <div class="card h-100">
-                    <div class="card-body">
-                      <span class="badge badge-primary float-right">Em Alta</span>
-                      <h3 class="card-title"><br>Business</h3>
-                      <!-- Business plan features -->
-                      <small><b>5GB</b> de Armazenamento</small><br>
-                      <small>Produtos <b>Ilimitados</b></small><br>
-                      <small>SEO Automatizado</small><br>
-                      <small>Cartões de Presente</small><br>
-                      <small><b>Marketing Digital com IA</b></small><br>
-                      <small>Marketplace de Extensões</small><br>
-                      <small><strike>Consultoria de Ecommerce</strike></small>
-
-                      <h5 class="plan-price">R$ 350,00 / Mês</h5>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-lg-4 col-12 mb-2">
-                  <div class="card h-100">
-                    <div class="card-body">
-                      <h3 class="card-title"><br>Enterprise</h3>
-                      <!-- Enterprise plan features -->
-                      <small>Armazenamento <b>Ilimitado</b></small><br>
-                      <small>Produtos <b>Ilimitados</b></small><br>
-                      <small>SEO Automatizado</small><br>
-                      <small>Cartões de Presente</small><br>
-                      <small><b>Marketing Digital com IA</b></small><br>
-                      <small>Marketplace de Extensões</small><br>
-                      <small>Consultoria de Ecommerce</small>
-
-                      <h5 class="plan-price">R$ 500,00 / Mês</h5>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="tab-pane fade" id="yearly" role="tabpanel" aria-labelledby="yearly-tab">
-              <div class="row mx-lg-5">
-                <div class="col-lg-4 col-12 mb-2">
-                  <div class="card h-100">
-                    <div class="card-body">
-                      <h3 class="card-title"><br>Básico</h3>
-                      <!-- Basic plan features -->
-                      <small><b>1GB</b> de Armazenamento</small><br>
-                      <small>Até <b>80</b> Produtos</small><br>
-                      <small>SEO Automatizado</small><br>
-                      <small><strike>Cartões de Presente</strike></small><br>
-                      <small><strike><b>Marketing Digital com IA</b></strike></small><br>
-                      <small><strike>Marketplace de Extensões</strike></small><br>
-                      <small><strike>Consultoria de Ecommerce</strike></small>
-
-                      <h5 class="plan-price">R$ 85,00 / Mês</h5>
-                      <small class="text-muted">R$ 1.020,00 / Ano</small>
-                    </div>
-                  </div>
-                </div>
-                
-                <div class="col-lg-4 col-12 mb-2">
-                  <div class="card h-100">
-                    <div class="card-body">
-                      <span class="badge badge-primary float-right">Em Alta</span>
-                      <h3 class="card-title"><br>Business</h3>
-                      <!-- Business plan features -->
-                      <small><b>5GB</b> de Armazenamento</small><br>
-                      <small>Produtos <b>Ilimitados</b></small><br>
-                      <small>SEO Automatizado</small><br>
-                      <small>Cartões de Presente</small><br>
-                      <small><b>Marketing Digital com IA</b></small><br>
-                      <small>Marketplace de Extensões</small><br>
-                      <small><strike>Consultoria de Ecommerce</strike></small>
-
-                      <h5 class="plan-price">R$ 297,00 / Mês</h5>
-                      <small class="text-muted">R$ 3.564,00 / Ano</small>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-lg-4 col-12 mb-2">
-                  <div class="card h-100">
-                    <div class="card-body">
-                      <h3 class="card-title"><br>Enterprise</h3>
-                      <!-- Enterprise plan features -->
-                      <small>Armazenamento <b>Ilimitado</b></small><br>
-                      <small>Produtos <b>Ilimitados</b></small><br>
-                      <small>SEO Automatizado</small><br>
-                      <small>Cartões de Presente</small><br>
-                      <small><b>Marketing Digital com IA</b></small><br>
-                      <small>Marketplace de Extensões</small><br>
-                      <small>Consultoria de Ecommerce</small>
-
-                      <h5 class="plan-price">R$ 425,00 / Mês</h5>
-                      <small class="text-muted">R$ 5.100,00 / Ano</small>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <div class="final-cta jumbotron jumbotron-fluid mx-lg-5 mt-5">
-        <div class="container text-center">
-          <h1>Pronto para vender?</h1>
-          <p class="lead">Comece agora o seu período de teste totalmente gratuito.</p>
-          <a href="#" class="btn btn-primary rounded-pill"><b>Criar Conta</b></a>
-        </div>
-      </div>
-
-    </div>
-  </div>
-  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-  <script src="static/js/bootstrap.min.js"></script>
-  <script src="https://unpkg.com/progressively/dist/progressively.min.js"></script>
-  <script type="text/javascript">
-    progressively.init({
-      delay: 10,
-      throttle: 200,
-    });
-  </script>
+    <script>
+        // Future implementation: Infinite scroll pagination for posts
+    </script>
 </body>
 </html>
