@@ -130,4 +130,34 @@ code {
     font-size: 1.1rem;
     color: #cccccc;
     max-width: 650px;
+}
+
+/* Table styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 0.9em;
+}
+
+th {
+    background-color: #333;
+    color: var(--text-color);
+    font-weight: bold;
+    text-align: left;
+    padding: 12px;
+    border-bottom: 2px solid #444;
+}
+
+td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--accent-color);
+}
+
+tr:nth-child(even) {
+    background-color: #252525;
+}
+
+tr:hover {
+    background-color: #2a2a2a;
 } 
