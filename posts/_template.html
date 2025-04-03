@@ -25,89 +25,10 @@
         <article>
             <div class="post-header">
                 <h1 class="post-title">Hello World</h1>
-                <div class="post-date">Apr 3, 2024</div>
+                <div class="post-date">Apr 03, 2024</div>
             </div>
             <div class="post-content">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Maecenas vel magna vel urna convallis dictum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Donec eu interdum est. Integer convallis nunc vel lectus semper, eu ultrices augue lacinia.</p>
-
-                <p>Donec tincidunt magna vel ipsum facilisis eleifend. Praesent tincidunt nisl ac semper ultricies. Nullam vehicula tristique neque, eu tincidunt ipsum tempus id. Ut tincidunt, mauris ut cursus blandit, lectus felis euismod augue, nec cursus quam metus at est.</p>
-
-                <h2>Code Example</h2>
-
-                <p>Here's a simple Python function that demonstrates a basic web scraper:</p>
-
-                <pre><code class="language-python">import requests
-from bs4 import BeautifulSoup
-
-def scrape_webpage(url):
-    """
-    Simple function to scrape a webpage
-    """
-    # Send request to the URL
-    response = requests.get(url)
-    
-    # Check if the request was successful
-    if response.status_code == 200:
-        # Parse the HTML content
-        soup = BeautifulSoup(response.text, 'html.parser')
-        
-        # Extract the title
-        title = soup.title.string
-        
-        # Extract all paragraphs
-        paragraphs = [p.text for p in soup.find_all('p')]
-        
-        return {
-            'title': title,
-            'paragraphs': paragraphs
-        }
-    
-    return None
-
-# Example usage
-if __name__ == "__main__":
-    data = scrape_webpage('https://example.com')
-    print(f"Title: {data['title']}")
-    print(f"Found {len(data['paragraphs'])} paragraphs")</code></pre>
-
-                <p>Suspendisse potenti. Etiam sit amet metus sit amet velit facilisis bibendum. Mauris vel elit vel nisi tincidunt malesuada. Integer eu mauris in neque facilisis varius eu a eros. Cras feugiat felis ac velit rhoncus convallis.</p>
-
-                <h2>Another Example</h2>
-
-                <p>Here's a JavaScript example for creating a simple dark mode toggle:</p>
-
-                <pre><code class="language-javascript">// Simple dark mode toggle functionality
-function toggleDarkMode() {
-    const body = document.body;
-    const isDarkMode = body.classList.contains('dark-mode');
-    
-    // Toggle dark mode class
-    if (isDarkMode) {
-        body.classList.remove('dark-mode');
-        localStorage.setItem('theme', 'light');
-    } else {
-        body.classList.add('dark-mode');
-        localStorage.setItem('theme', 'dark');
-    }
-}
-
-// Check user preference on page load
-document.addEventListener('DOMContentLoaded', () => {
-    const savedTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
-    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-        document.body.classList.add('dark-mode');
-    }
-    
-    // Add event listener to toggle button
-    const toggleButton = document.getElementById('dark-mode-toggle');
-    if (toggleButton) {
-        toggleButton.addEventListener('click', toggleDarkMode);
-    }
-});</code></pre>
-
-                <p>Curabitur commodo magna velit, quis pulvinar sapien mollis et. Vestibulum porttitor quam vitae mauris dignissim, nec malesuada nulla suscipit. Cras euismod, mauris quis suscipit posuere, augue nisi condimentum turpis, ut sagittis felis est sed nisi.</p>
+                <p>Post content goes here.</p>
             </div>
         </article>
     </main>
