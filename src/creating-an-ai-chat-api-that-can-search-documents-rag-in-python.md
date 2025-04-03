@@ -118,12 +118,14 @@ Settings.embed_model = HuggingFaceEmbedding(model_name="BAAI/bge-small-en-v1.5")
 client = qdrant_client.QdrantClient(url="http://localhost:6333")
 vector_store = QdrantVectorStore(client=client, collection_name="polyrag_documents")
 storage_context = StorageContext.from_defaults(vector_store=vector_store)
-indexer.py
+```
 
 Now let's create an ingestion pipeline to process our documents and add them to Qdrant.
 
 You can tweak the settings for your use-case, I'm using chunk_size=1024 and chunk_overlap=64.
 
+> indexer.py
+```python
 # Create the pipeline with transformations
 pipeline = IngestionPipeline(
     transformations=[
@@ -167,10 +169,12 @@ Settings.embed_model = HuggingFaceEmbedding(model_name="BAAI/bge-small-en-v1.5")
 client = qdrant_client.QdrantClient(url="http://localhost:6333")
 vector_store = QdrantVectorStore(client=client, collection_name="polyrag_documents")
 storage_context = StorageContext.from_defaults(vector_store=vector_store)
-chat.py
+```
 
 Then, we can create a LlamaIndex query engine to interact with our database, and define a loop that asks for the user's input and sends it as a query to our index, and repeats until the user types in "bye".
 
+> chat.py
+```python
 # Create VectorStoreIndex and query engine
 index = VectorStoreIndex.from_vector_store(
     vector_store=vector_store
