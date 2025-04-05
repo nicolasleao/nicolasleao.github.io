@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Creating an MCP Agent with Pydantic AI: A Complete Guide - Nicolas Leao</title>
+<link href="../styles.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css" rel="stylesheet"/>
+</head>
+<body>
+<header>
+<div class="site-logo">
+<a href="../index.html">
+<img alt="Nicolas Leao" src="../assets/logo-small-3.png"/>
+</a>
+</div>
+<nav>
+<a href="../index.html">home</a>
+<a href="https://github.com/nicolasleao" rel="noopener noreferrer" target="_blank">github</a>
+<a href="#" rel="noopener noreferrer" target="_blank">community</a>
+</nav>
+</header>
+<main>
+<article>
+<div class="post-header">
+<h1 class="post-title">Creating an MCP Agent with Pydantic AI: A Complete Guide</h1>
+<div class="post-date">Apr 05, 2025</div>
+</div>
+<div class="post-content"><h1 id="creating-an-mcp-agent-with-pydantic-ai-a-complete-guide">Creating an MCP Agent with Pydantic AI: A Complete Guide</h1>
+<p>Discover how to effortlessly build powerful AI agents using Pydantic AI integrated with MCP (Model Context Protocol) servers. This ultimate guide walks you through the process of creating your first MCP agent, integrating Milvus vector databases, and setting up practical, scalable vector search workflows.</p>
+<h2 id="introduction">Introduction</h2>
+<p>AI applications today require robust and highly adaptable frameworks that can seamlessly interact with diverse external tools such as vector databases and APIs. Enter Model Context Protocol (MCP), an emerging standard facilitating structured communication between AI agents and external services. Coupled with the intuitive, Python-based Pydantic AI framework, MCP sets the stage for developing sophisticated, practical, and scalable agent ecosystems.</p>
+<p>This guide is perfect if you're an engineer ready to enhance your AI applications or a developer aiming to master semantic search workflows. You'll learn:</p>
+<ul>
+<li>Essential MCP and Pydantic AI concepts.</li>
+<li>Step-by-step guidance on building your own AI agent.</li>
+<li>Integration of Milvus vector databases via MCP.</li>
+<li>Real-world execution and management tips for your AI agents.</li>
+</ul>
+<h2 id="what-are-pydantic-ai-and-mcp">What are Pydantic AI and MCP?</h2>
+<h3 id="pydantic-ai-explained">Pydantic AI Explained</h3>
+<p>Pydantic AI streamlines the creation and management of AI agents through its Pythonic, structured approach. It simplifies tasks such as:</p>
+<ul>
+<li>Natural language processing and response structuring.</li>
+<li>Dynamic tool selection based on context.</li>
+<li>Effective integration with external resources via MCP servers.</li>
+</ul>
+<h3 id="why-mcp">Why MCP?</h3>
+<p>Model Context Protocol (MCP) standardizes communication between AI agents and external services, creating seamless interoperability with tools like Milvus, FAISS, web search APIs, and more.</p>
+<p>Benefits of MCP:
+- Uniform interfaces across various tools.
+- Modular design enhancing scalability.
+- Improved security and observability.</p>
+<hr/>
+<h2 id="building-your-mcp-agent-a-step-by-step-guide">Building Your MCP Agent: A Step-by-Step Guide</h2>
+<h3 id="step-1-environment-setup">Step 1: Environment Setup</h3>
+<p>Begin by installing the essential libraries:</p>
+<div class="codehilite"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>pydantic-ai<span class="w"> </span>mcp-server-fetch<span class="w"> </span>postgres-mcp<span class="w"> </span>pymilvus
+</code></pre></div>
+<p>Initialize your AI backend (e.g., Claude 3.7 Sonnet):</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pydantic_ai</span><span class="w"> </span><span class="kn">import</span> <span class="n">Agent</span>
+
+<span class="n">agent</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span><span class="s1">'anthropic:claude-3-7-sonnet'</span><span class="p">)</span>
+</code></pre></div>
+<p>Verify your setup by testing a basic agent function:</p>
+<div class="codehilite"><pre><span></span><code><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">chat_interface</span><span class="p">(</span><span class="n">user_input</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">agent</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">user_input</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="n">data</span>
+</code></pre></div>
+<h3 id="step-2-integrating-mcp-servers">Step 2: Integrating MCP Servers</h3>
+<p>Use FastMCP to connect your agent with Milvus for advanced semantic searches:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">mcp.server.fastmcp</span><span class="w"> </span><span class="kn">import</span> <span class="n">FastMCP</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pymilvus</span><span class="w"> </span><span class="kn">import</span> <span class="n">connections</span><span class="p">,</span> <span class="n">Collection</span>
+
+<span class="n">connections</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s1">'localhost'</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="s1">'19530'</span><span class="p">)</span>
+<span class="n">collection</span> <span class="o">=</span> <span class="n">Collection</span><span class="p">(</span><span class="s2">"docs_collection"</span><span class="p">)</span>
+
+<span class="n">server</span> <span class="o">=</span> <span class="n">FastMCP</span><span class="p">(</span><span class="s1">'VectorSearchServer'</span><span class="p">)</span>
+
+<span class="nd">@server</span><span class="o">.</span><span class="n">tool</span><span class="p">()</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">semantic_search</span><span class="p">(</span><span class="n">query</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">top_k</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">):</span>
+    <span class="n">query_embedding</span> <span class="o">=</span> <span class="n">embed_text</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="n">collection</span><span class="o">.</span><span class="n">search</span><span class="p">(</span>
+        <span class="n">data</span><span class="o">=</span><span class="p">[</span><span class="n">query_embedding</span><span class="p">],</span>
+        <span class="n">anns_field</span><span class="o">=</span><span class="s2">"embedding"</span><span class="p">,</span>
+        <span class="n">param</span><span class="o">=</span><span class="p">{</span><span class="s2">"metric_type"</span><span class="p">:</span> <span class="s2">"IP"</span><span class="p">,</span> <span class="s2">"params"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"nprobe"</span><span class="p">:</span> <span class="mi">10</span><span class="p">}},</span>
+        <span class="n">limit</span><span class="o">=</span><span class="n">top_k</span><span class="p">,</span>
+        <span class="n">output_fields</span><span class="o">=</span><span class="p">[</span><span class="s2">"source"</span><span class="p">,</span> <span class="s2">"timestamp"</span><span class="p">]</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">results</span>
+
+<span class="n">agent</span><span class="o">.</span><span class="n">mcp_servers</span> <span class="o">=</span> <span class="p">[</span><span class="n">server</span><span class="p">]</span>
+</code></pre></div>
+<h3 id="step-3-configuring-and-running-multiple-mcp-servers">Step 3: Configuring and Running Multiple MCP Servers</h3>
+<p>Manage multiple MCP servers dynamically using JSON configuration:</p>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"servers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MilvusSearch"</span><span class="p">,</span><span class="w"> </span><span class="nt">"command"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uv run milvus_mcp.py"</span><span class="p">,</span><span class="w"> </span><span class="nt">"tools"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"semantic_search"</span><span class="p">]},</span>
+<span class="w">    </span><span class="p">{</span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WebSearch"</span><span class="p">,</span><span class="w"> </span><span class="nt">"command"</span><span class="p">:</span><span class="w"> </span><span class="s2">"python -m mcp_server_fetch"</span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="how-to-run-and-use-your-mcp-agent">How to Run and Use Your MCP Agent</h2>
+<h3 id="1-starting-mcp-servers">1. Starting MCP Servers</h3>
+<p>Run each server from separate terminal windows or scripts:</p>
+<div class="codehilite"><pre><span></span><code>uv<span class="w"> </span>run<span class="w"> </span>milvus_mcp.py
+</code></pre></div>
+<p>Alternatively, automate server launches:</p>
+<div class="codehilite"><pre><span></span><code>python<span class="w"> </span>launch_servers.py
+</code></pre></div>
+<p>Ensure external dependencies like Milvus are active.</p>
+<h3 id="2-running-your-agent">2. Running Your Agent</h3>
+<p>Interact with your agent easily:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">your_agent_module</span><span class="w"> </span><span class="kn">import</span> <span class="n">agent</span>
+
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="n">user_input</span> <span class="o">=</span> <span class="s2">"Find documents related to autonomous AI agents"</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">agent</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">user_input</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+
+<span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
+</code></pre></div>
+<h3 id="troubleshooting-checklist">Troubleshooting Checklist</h3>
+<ul>
+<li>Confirm Milvus connections and schemas.</li>
+<li>Log MCP server outputs for debugging.</li>
+<li>Use error handling for smoother troubleshooting.</li>
+</ul>
+<h2 id="advanced-considerations-for-scaling">Advanced Considerations for Scaling</h2>
+<ul>
+<li><strong>Security:</strong> Implement RBAC within MCP for secure interactions.</li>
+<li><strong>Performance:</strong> Optimize batching to enhance throughput and reduce latency.</li>
+<li><strong>Observability:</strong> Deploy MCP monitoring services like Logfire for real-time insights.</li>
+</ul>
+<h2 id="next-level-mcp-features">Next-Level MCP Features</h2>
+<ul>
+<li><strong>Hybrid Searches:</strong> Merge semantic and keyword search results seamlessly.</li>
+<li><strong>Dynamic Tool Loading:</strong> Update MCP tools live without service interruption.</li>
+<li><strong>Multi-Model Routing:</strong> Assign tasks dynamically to specialized AI models.</li>
+</ul>
+<hr/>
+<h2 id="conclusion-unlocking-powerful-ai-agents">Conclusion: Unlocking Powerful AI Agents</h2>
+<p>By mastering MCP and Pydantic AI, you're equipped to build scalable, highly capable AI agents that seamlessly integrate with powerful external tools. This guide has laid the groundwork—now, it’s your turn to innovate and expand.</p>
+<p>Ready to shape the future of AI?</p>
+<p>Join the <a href="https://cognition.digital" rel="noopener noreferrer" target="_blank">Digital Cognition Club</a>—the premier community for AI practitioners dedicated to advancing the practical application of AI technology.</p></div>
+</article>
+</main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Apply syntax highlighting to all code blocks
+            document.querySelectorAll('pre code').forEach((block) => {
+                hljs.highlightElement(block);
+            });
+        });
+    </script>
+</body>
+</html> 
