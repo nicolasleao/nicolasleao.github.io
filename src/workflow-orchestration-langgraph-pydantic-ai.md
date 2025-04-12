@@ -1,4 +1,4 @@
-### Introduction to Workflow Orchestration with LangGraph and Pydantic AI
+# Introduction to Workflow Orchestration with LangGraph and Pydantic AI
 
 In modern AI-driven applications, workflow orchestration is crucial for managing complex processes and ensuring seamless execution. LangGraph and Pydantic AI are two powerful tools that, when combined, offer a robust solution for orchestrating workflows. LangGraph excels in creating dynamic workflows by leveraging graph structures, while Pydantic AI provides robust data validation and structured output handling.
 

@@ -82,6 +82,11 @@ header {
     background: transparent;
 }
 
+.post-image {
+    max-width: 100%;
+    height: auto;
+}
+
 .menu-toggle.active .hamburger::before {
     transform: rotate(45deg);
 }

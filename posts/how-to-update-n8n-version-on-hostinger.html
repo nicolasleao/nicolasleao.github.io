@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>How to Update n8n on a VPS (e.g., Hostinger) to Get the New MCP Nodes - Nicolas Leao</title>
+<link href="../styles.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css" rel="stylesheet"/>
+</head>
+<body>
+<header>
+<div class="site-logo">
+<a href="../index.html">
+<img alt="Nicolas Leao" src="../assets/logo-small-3.png"/>
+</a>
+</div>
+<nav>
+<a href="../index.html">home</a>
+<a href="https://github.com/nicolasleao" rel="noopener noreferrer" target="_blank">github</a>
+<a href="https://cognition.digital" rel="noopener noreferrer" target="_blank">community</a>
+</nav>
+</header>
+<main>
+<article>
+<div class="post-header">
+<h1 class="post-title">How to Update n8n on a VPS (e.g., Hostinger) to Get the New MCP Nodes</h1>
+<div class="post-date">Apr 12, 2025</div>
+</div>
+<div class="post-content"><h1 id="how-to-update-n8n-on-a-vps-eg-hostinger-to-get-the-new-mcp-nodes">How to Update n8n on a VPS (e.g., Hostinger) to Get the New MCP Nodes</h1>
+<p>If you're self-hosting n8n on a VPS (like Hostinger) and want to take advantage of the new <strong>MCP nodes</strong>, you're in luck — updating your n8n instance is quick and painless if you're using Docker.</p>
+<p>Follow the concise guide below to upgrade your deployment and unlock the latest features.</p>
+<hr/>
+<h2 id="step-1-ssh-into-your-vps">Step 1: SSH into Your VPS</h2>
+<p>Use your preferred terminal or the browser-based terminal provided by your host. For example:</p>
+<div class="codehilite"><pre><span></span><code>ssh<span class="w"> </span>root@your-server-ip
+</code></pre></div>
+<p>Or using the browser console, just click this button on hostinger</p>
+<p><img class="post-image" alt="How to open the browser console on hostinger" src="../assets/post-images/hostinger-browser-console-button-screenshot.png" title="Hostinger browser console"/></p>
+<hr/>
+<h2 id="step-2-locate-your-docker-composeyml-file">Step 2: Locate Your <code>docker-compose.yml</code> File</h2>
+<p>Usually, this file is in your root's home directory:</p>
+<div class="codehilite"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~
+nano<span class="w"> </span>docker-compose.yml
+</code></pre></div>
+<hr/>
+<h2 id="step-3-update-the-image-tag-to-next">Step 3: Update the Image Tag to "next"</h2>
+<p>In the <code>docker-compose.yml</code>, find the line with the <code>image</code> key under the n8n service:</p>
+<div class="codehilite"><pre><span></span><code><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">n8nio/n8n:latest</span>
+</code></pre></div>
+<p>Change it to:</p>
+<div class="codehilite"><pre><span></span><code><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">n8nio/n8n:next</span>
+</code></pre></div>
+<p>This ensures you're pulling the latest cutting-edge version, which includes the MCP nodes.</p>
+<blockquote>
+<p>📌 You can browse available image tags at: <a href="https://hub.docker.com/r/n8nio/n8n/tags" rel="noopener noreferrer" target="_blank">https://hub.docker.com/r/n8nio/n8n/tags</a></p>
+</blockquote>
+<hr/>
+<h2 id="step-4-stop-the-current-containers">Step 4: Stop the Current Containers</h2>
+<p>Depending on your Docker Compose version, run one of the following:</p>
+<div class="codehilite"><pre><span></span><code>docker<span class="w"> </span>compose<span class="w"> </span>down
+</code></pre></div>
+<p><em>or older versions:</em></p>
+<div class="codehilite"><pre><span></span><code>docker-compose<span class="w"> </span>down
+</code></pre></div>
+<hr/>
+<h2 id="step-5-pull-the-new-image">Step 5: Pull the New Image</h2>
+<p>Fetch the updated <code>next</code> image:</p>
+<div class="codehilite"><pre><span></span><code>docker<span class="w"> </span>compose<span class="w"> </span>pull
+</code></pre></div>
+<hr/>
+<h2 id="step-6-start-everything-back-up">Step 6: Start Everything Back Up</h2>
+<p>Spin up your containers again:</p>
+<div class="codehilite"><pre><span></span><code>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d
+</code></pre></div>
+<hr/>
+<h2 id="youre-all-set">You're All Set ✅</h2>
+<p>Once the containers restart, your n8n instance will be running the latest version with MCP node support. Check your browser dashboard and start building with the new tools!</p>
+<p>If you want more content like this, consider joining the <a href="https://cognition.digital" rel="noopener noreferrer" target="_blank">Digital Cognition Club</a> — where practitioners are building the future of AI and automation.</p></div>
+</article>
+</main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Apply syntax highlighting to all code blocks
+            document.querySelectorAll('pre code').forEach((block) => {
+                hljs.highlightElement(block);
+            });
+        });
+    </script>
+</body>
+</html> 
