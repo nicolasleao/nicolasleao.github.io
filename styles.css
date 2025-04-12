@@ -25,6 +25,7 @@ header {
     padding-bottom: 20px;
     border-bottom: 1px solid var(--accent-color);
     margin-bottom: 30px;
+    position: relative;
 }
 
 .site-title {
@@ -36,6 +37,63 @@ header {
     max-height: 40px;
     width: auto;
     vertical-align: middle;
+}
+
+/* Hamburger Menu */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 20;
+    outline: none;
+}
+
+.menu-toggle:focus {
+    outline: none;
+}
+
+.menu-toggle.active {
+    outline: none;
+    border: none;
+}
+
+.hamburger, 
+.hamburger::before, 
+.hamburger::after {
+    content: '';
+    display: block;
+    background: var(--text-color);
+    height: 3px;
+    width: 25px;
+    transition: all 0.3s ease;
+}
+
+.hamburger::before {
+    transform: translateY(-8px);
+}
+
+.hamburger::after {
+    transform: translateY(5px);
+}
+
+.menu-toggle.active .hamburger {
+    background: transparent;
+}
+
+.menu-toggle.active .hamburger::before {
+    transform: rotate(45deg);
+}
+
+.menu-toggle.active .hamburger::after {
+    transform: translateY(-3px) rotate(-45deg);
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    align-items: center;
 }
 
 nav a {
@@ -183,4 +241,67 @@ tr:nth-child(even) {
 
 tr:hover {
     background-color: #2a2a2a;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+    
+    nav {
+        position: fixed;
+        top: 0;
+        right: -250px;
+        width: 250px;
+        height: 100vh;
+        background-color: var(--bg-color);
+        flex-direction: column;
+        padding: 80px 20px 20px;
+        z-index: 10;
+        transition: right 0.3s ease;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+        visibility: hidden;
+    }
+    
+    nav.nav-active {
+        right: 0;
+        visibility: visible;
+    }
+    
+    nav a {
+        margin: 0 0 20px 0;
+        font-size: 1.2rem;
+    }
+    
+    .profile-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+    
+    .profile-pic {
+        margin: 0 auto;
+    }
+    
+    .intro-text {
+        text-align: center;
+        width: 100%;
+    }
+    
+    .intro h1 {
+        margin-top: 10px;
+    }
+    
+    body.menu-open {
+        overflow: hidden;
+    }
+    
+    .post-item {
+        flex-direction: column;
+    }
+    
+    .post-date {
+        margin-top: 5px;
+    }
 } 
